@@ -4,3 +4,4 @@ def getdata(data):
     print ("city:",data[2])
 
     getdata([101,'parmar','rajkot'])
+    
