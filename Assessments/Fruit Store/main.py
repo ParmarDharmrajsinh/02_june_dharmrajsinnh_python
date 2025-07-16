@@ -1,4 +1,5 @@
 # main.py
+print("fruit market")
 
 from fruit_manager import FruitManager
 from customer import Customer

@@ -1,4 +1,6 @@
+accounts={}
 class bankaccount:
+
     def __init__(self,name ,acc_number,blance=0):
         self.name=name
         self.acc_number=acc_number
@@ -24,8 +26,7 @@ class bankaccount:
         print(f"Name       : {self.name}")
         print(f"Account No.: {self.acc_no}")
         print(f"Balance    : ₹{self.balance}")
-    def main():
-        accounts = {}
+    
 
     while True:
         print("\n===== Bank Management System =====")
@@ -42,7 +43,7 @@ class bankaccount:
             if acc_no in accounts:
                 print("Account already exists!")
             else:
-                accounts[acc_no] = BankAccount(name, acc_no)
+                accounts[acc_no] = (name, acc_no)
                 print("Account created successfully!")
 
 
