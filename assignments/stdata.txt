@@ -1,0 +1,23 @@
+create  a tkinter app with  manu bar.
+		---file
+		open
+		save 
+		exit 
+
+
+	apps
+
+		calc
+		notepad 
+		google chrome
+	about 
+     		name 
+		phone 
+
+		
+
+contact
+	number 
+
+
+		
