@@ -1,10 +1,7 @@
-# 2. models/base_user.py
+# models/user.py
 
-class BaseUser:
+class User:
     def __init__(self, name, email, password):
         self.name = name
         self.email = email.lower().strip()
         self.password = password.strip()
-
-    def validate_email(self):
-        return "@" in self.email and "." in self.email
