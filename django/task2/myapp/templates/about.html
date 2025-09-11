@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block title %}About Us{% endblock %}
+{% block content %}
+
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">About Us</h2>
+    <p class="text-center mb-5">At Tour & Travel, we aim to provide unforgettable travel experiences. Our team of experts designs customized travel packages, ensuring comfort, adventure, and memories that last a lifetime.</p>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="/static/our_team.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Our Team</h5>
+            <p class="card-text">A passionate team of travel experts dedicated to planning your perfect journey.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="/static/OIP.jpeg" class="card-img-top" alt="Adventure">
+          <div class="card-body">
+            <h5 class="card-title">Our Vision</h5>
+            <p class="card-text">To make travel accessible, memorable, and enjoyable for every adventurer.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <img src="/static/OIP (1).jpeg" class="card-img-top" alt="Service">
+          <div class="card-body">
+            <h5 class="card-title">Customer Care</h5>
+            <p class="card-text">Providing 24/7 assistance and support for all our travelers’ needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{% endblock %}

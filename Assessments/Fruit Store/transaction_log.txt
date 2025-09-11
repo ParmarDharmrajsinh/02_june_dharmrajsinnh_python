@@ -1,6 +1,0 @@
-Stock_Add | User: Manager | Fruit: Apple | Qty: 222 | Price: ₹12
-Purchase | User: Aa | Fruit: Apple | Qty: 1 | Price: ₹12
-Stock_Add | User: Manager | Fruit: Banana | Qty: 32 | Price: ₹12
-Purchase | User: Parmar | Fruit: Apple | Qty: 21 | Price: ₹12
-Stock_Add | User: Manager | Fruit: Banana | Qty: 234 | Price: ₹211
-Stock_Update | User: Manager | Fruit: Apple | Qty: 333 | Price: ₹21
