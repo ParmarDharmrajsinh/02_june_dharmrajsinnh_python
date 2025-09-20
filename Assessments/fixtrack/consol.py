@@ -4,19 +4,18 @@ order_id_counter = 1
 
 
 def record_order():
-    """Record a new repair order"""
     global order_id_counter
 
     print("\n--- New Repair Order ---")
-    customer = input("Enter customer name: ").strip()
-    device = input("Enter device type: ").strip()
-    issue = input("Enter device issue: ").strip()
-    due_date = input("Enter due date (YYYY-MM-DD): ").strip()
+    customer = input("Enter customer name: ")
+    device = input("Enter device type: ")
+    issue = input("Enter device issue: ")
+    due_date = input("Enter due date (DD-MM-YYYY): ")
 
     try:
         datetime.datetime.strptime(due_date, "%Y-%m-%d")
-    except ValueError:
-        print("❌ Invalid date format. Please use YYYY-MM-DD.")
+    except:
+        print(" Invalid date format. Please use DD-MM-YYYY.")
         return
 
     order = {
@@ -30,30 +29,29 @@ def record_order():
         "repair_fee": 0,
     }
     orders.append(order)
-    print(f"✅ Order recorded successfully! Order ID: {order_id_counter}")
+    print(f"Order recorded successfully! Order ID: {order_id_counter}")
     order_id_counter += 1
 
 
 def complete_repair():
-    """Mark repair as complete and enter billing details"""
     if not orders:
-        print("\n⚠️ No orders available.")
+        print("\n No orders available.")
         return
 
     try:
         order_id = int(input("Enter Order ID to complete: "))
     except ValueError:
-        print("❌ Invalid input. Enter a number.")
+        print("Invalid input. Enter a number.")
         return
 
     order = next((o for o in orders if o["order_id"] == order_id), None)
 
     if not order:
-        print("❌ Order not found.")
+        print(" Order not found.")
         return
 
     if order["status"] == "Completed":
-        print("⚠️ This order is already completed.")
+        print(" This order is already completed.")
         return
 
     print(f"\n--- Completing Order #{order_id} ---")
@@ -64,40 +62,39 @@ def complete_repair():
         try:
             part_cost = float(input(f" Part {i+1} cost: "))
         except ValueError:
-            print("❌ Invalid cost. Skipping this part.")
+            print(" Invalid cost. Skipping this part.")
             continue
         order["parts"].append((part_name, part_cost))
 
     try:
         order["repair_fee"] = float(input("Enter repair service fee: "))
     except ValueError:
-        print("❌ Invalid fee. Setting to 0.")
+        print(" Invalid fee. Setting to 0.")
         order["repair_fee"] = 0
 
     order["status"] = "Completed"
-    print("✅ Repair marked as completed.")
+    print(" Repair marked as completed.")
 
 
 def generate_invoice():
-    """Generate a bill for a completed order"""
     if not orders:
-        print("\n⚠️ No orders available.")
+        print("\n No orders available.")
         return
 
     try:
         order_id = int(input("Enter Order ID for invoice: "))
     except ValueError:
-        print("❌ Invalid input. Enter a number.")
+        print(" Invalid input. Enter a number.")
         return
 
     order = next((o for o in orders if o["order_id"] == order_id), None)
 
     if not order:
-        print("❌ Order not found.")
+        print(" Order not found.")
         return
 
     if order["status"] != "Completed":
-        print("⚠️ Repair not completed yet. Invoice unavailable.")
+        print(" Repair not completed yet. Invoice unavailable.")
         return
 
     print("\n====== FixTrack Invoice ======")
@@ -117,7 +114,7 @@ def generate_invoice():
         try:
             discount = float(input("Enter discount amount: "))
         except ValueError:
-            print("❌ Invalid discount. Setting to 0.")
+            print("Invalid discount. Setting to 0.")
             discount = 0
 
     total = subtotal + tax - discount
@@ -134,9 +131,8 @@ def generate_invoice():
 
 
 def view_orders():
-    """View all repair orders"""
     if not orders:
-        print("\n⚠️ No orders found.")
+        print("\n No orders found.")
         return
 
     print("\n--- All Repair Orders ---")
@@ -148,7 +144,7 @@ def view_orders():
 
 
 def main():
-    """Main program loop"""
+   
     while True:
         print("\n===== FixTrack Menu =====")
         print("1. Record New Repair Order")
@@ -168,10 +164,10 @@ def main():
         elif choice == "4":
             view_orders()
         elif choice == "5":
-            print("👋 Exiting FixTrack. Goodbye!")
+            print(" Exiting FixTrack. Goodbye!")
             break
         else:
-            print("❌ Invalid choice. Try again.")
+            print(" Invalid choice. Try again.")
 
 
 if __name__ == "__main__":

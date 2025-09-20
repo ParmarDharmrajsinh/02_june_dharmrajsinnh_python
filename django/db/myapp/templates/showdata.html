@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 shadow-lg">
+    <h1 class="text-3xl font-bold text-white text-center">Show Data</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse bg-white shadow-lg rounded-2xl overflow-hidden">
+        <thead>
+          <tr class="bg-indigo-600 text-white text-left">
+            <th class="px-6 py-3">Id</th>
+            <th class="px-6 py-3">Name</th>
+            <th class="px-6 py-3">Email</th>
+            <th class="px-6 py-3">DOB</th>
+            <th class="px-6 py-3">Mobile</th>
+            <th class="px-6 py-3">Address</th>
+            <th class="px-6 py-3">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          {% for i in data %}
+          <tr class="hover:bg-gray-100 transition-colors">
+            <td class="px-6 py-4 text-gray-700">{{i.id}}</td>
+            <td class="px-6 py-4 text-gray-700">{{i.name}}</td>
+            <td class="px-6 py-4 text-gray-700">{{i.email}}</td>
+            <td class="px-6 py-4 text-gray-700">{{i.dob}}</td>
+            <td class="px-6 py-4 text-gray-700">{{i.mobile}}</td>
+            <td class="px-6 py-4 text-gray-700">{{i.address}}</td>
+            <td class="px-4 py-4 space-x-2">
+              <a href="/update/{{i.id}}" class="text-indigo-600 hover:underline">update</a>
+              <a href="/delete/{{i.id}}" class="text-red-600 hover:underline">Delete</a>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+    <p class="text-sm">&copy; 2025 ShowData App. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
