@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Dashboard</title>
+  <title>Welcome</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -52,7 +52,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-md sticky-top">
     <div class="container">
-      <a class="navbar-brand text-2xl fw-bold text-indigo-600" href="#">MyApp</a>
+      <a class="navbar-brand text-2xl fw-bold text-indigo-600" href="/home/">My app</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,11 @@
           <li class="nav-item"><a class="nav-link text-gray-700" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link text-gray-700" href="#">Profile</a></li>
           <li class="nav-item"><a class="nav-link text-gray-700" href="#">Settings</a></li>
-          <li class="nav-item"><a class="btn btn-outline-danger rounded-pill ms-3" href="login.html">Logout</a></li>
+          {% if user == None %} 
+          <li class="nav-item"><a class="btn btn-outline rounded-pill ms-3" style="background-color: #3B82F6;" href="/user">login</a></li>
+          {% else %}
+          <li class="nav-item"><a class="btn btn-outline-danger rounded-pill ms-3" href="/user">Logout</a></li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -71,7 +75,7 @@
   <!-- Hero Section -->
   <section class="animated-bg text-white py-20">
     <div class="container text-center">
-      <h1 class="text-5xl font-bold mb-4">Welcome Back, User!</h1>
+      <h1 class="text-5xl font-bold mb-4">Welcome Back, {{user}}!</h1>
       <p class="text-xl mb-6">Explore your dashboard, track performance, and manage your profile seamlessly.</p>
       <a href="#features" class="btn btn-lg btn-light rounded-pill shadow-lg px-6 py-3 hover:bg-gray-100 transition">
         Get Started

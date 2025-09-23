@@ -15,7 +15,6 @@ class Post:
         self.content = content.strip()
 
     def get_filename(self):
-        # Make safe filenames (replace special characters with "_")
         safe_name = re.sub(r'[^A-Za-z0-9_]', "_", self.user.name)
         safe_title = re.sub(r'[^A-Za-z0-9_]', "_", self.title)
         return f"{safe_name}_{safe_title}.txt"
