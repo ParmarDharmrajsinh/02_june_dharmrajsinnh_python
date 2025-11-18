@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+    class="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+
+        <!-- Header -->
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">OTP Verification</h2>
+        <p class="text-center text-gray-500 mb-6">Enter the verification code sent to your email or phone</p
+        <-- Form -->
+        <form action="#" method="POST" class="space-y-5">
+            {% csrf_token %}
+            <div>
+                <label for="otp" class="block text-sm font-medium text-gray-700 mb-1">Enter OTP</label>
+                <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter 5-digit OTP"
+                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+                    required />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full py-2.5 rounded-lg bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-700 transition">
+                Verify OTP
+            </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-300" />
+            <span class="px-3 text-gray-400 text-sm">OR</span>
+            <hr class="flex-grow border-gray-300" />
+        </div>
+
+        <!-- Links -->
+        <div class="text-center text-gray-600 text-sm">
+            <p>Didn’t receive the OTP?
+                <a href="#" class="text-indigo-600 font-medium hover:underline">Resend</a>
+            </p>
+            <p class="mt-2">
+                <a href="/login" class="text-indigo-600 font-medium hover:underline">Back to Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirm = document.getElementById("confirm_password").value.trim();
+            let errorMsg = "";
+
+            if (name.length < 3) errorMsg += "Name must be at least 3 characters long.\n";
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) errorMsg += "Invalid email format.\n";
+            if (phone.length !== 10 || isNaN(phone)) errorMsg += "Phone must be 10 digits.\n";
+            if (password.length < 6) errorMsg += "Password must be at least 6 characters long.\n";
+            if (password !== confirm) errorMsg += "Passwords do not match.\n";
+
+            if (errorMsg) {
+                alert(errorMsg);
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-r from-blue-50 to-indigo-100 min-h-screen flex justify-center items-center">
+    <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center mb-6 text-blue-600">Patient Registration</h2>
+        <form onsubmit="return validateForm();" method="post">
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">Full Name</label>
+                <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">Email</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">Phone Number</label>
+                <input type="text" id="phone" name="phone" maxlength="10" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-1">Password</label>
+                <input type="password" id="password" name="password" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 mb-1">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Register</button>
+        </form>
+    </div>
+</body>
+</html>
