@@ -32,7 +32,8 @@
     <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
         <h2 class="text-2xl font-bold text-center mb-6 text-blue-600">Patient Registration</h2>
         <form onsubmit="return validateForm();" method="post">
-            
+            <div class="mb-4 text-green-700 bg-green-100 p-3 rounded">{{ success_message }}</div>
+           
             <div class="mb-4">
                 <label class="block text-gray-700 mb-1">Full Name</label>
                 <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">

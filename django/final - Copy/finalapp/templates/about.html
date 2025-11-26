@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — NotesApp</title>
+  <meta name="description" content="About NotesApp — mission, team, and values." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/static/Bokehlicia-Captiva-Checkbox.24.png" width="36" height="36" alt="logo"
+          class="rounded-md shadow" />
+        <span class="font-bold text-xl tracking-tight">NotesApp</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/" class="hover:text-indigo-400">Home</a>
+        <a href="/about" class="text-indigo-400 border-b-2 border-indigo-400 pb-1">About</a>
+        <a href="/contact" class="hover:text-indigo-400">Contact</a>
+        <a href="/notes" class="hover:text-indigo-400">Notes</a>
+      </div>
+
+      <!-- User Section -->
+      <div class="flex items-center gap-4">
+        {% if user is none %}
+        <div class="flex gap-3">
+          <a href="/signin" class="bg-indigo-600 px-4 py-2 rounded-lg text-white hover:bg-indigo-500 transition">Signin</a>
+          <a href="/signup" class="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-400 transition">Signup</a>
+        </div>
+        {% else %}
+        <div class="relative group">
+          <button
+            class="bg-gray-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-700 transition focus:outline-none">
+            <span>{{user}}</span>
+            <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            class="absolute right-0 hidden group-hover:block bg-white text-gray-800 rounded-lg shadow-md mt-2 w-40 overflow-hidden">
+            <a href="/update" class="block px-4 py-2 hover:bg-gray-100">Update Profile</a>
+            <a href="/userlogout" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-600 to-cyan-400 text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">About NotesApp</h1>
+      <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">
+        Your smart and simple way to store, organize, and manage notes — built for productivity and focus.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+        alt="Team collaboration" class="rounded-2xl shadow-lg">
+    </div>
+    <div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
+      <p class="text-gray-600 mb-4 leading-relaxed">
+        NotesApp helps users focus on what truly matters — ideas. Whether it’s a simple note or a complete study
+        repository, we make note-taking effortless, fast, and organized.
+      </p>
+      <div class="grid grid-cols-3 gap-4 mt-6 text-center">
+        <div>
+          <div class="text-2xl font-bold text-indigo-600">10K+</div>
+          <div class="text-sm text-gray-500">Active Users</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-indigo-600">50K+</div>
+          <div class="text-sm text-gray-500">Notes Saved</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-indigo-600">4.9/5</div>
+          <div class="text-sm text-gray-500">User Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
+      <p class="text-gray-500 mb-10">A passionate group of developers, designers, and thinkers shaping the future of note-taking.</p>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+            class="w-24 h-24 rounded-full mx-auto" alt="Ava" />
+          <h4 class="mt-4 font-semibold">Ava Reed</h4>
+          <p class="text-xs text-gray-500">Founder & CEO</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop"
+            class="w-24 h-24 rounded-full mx-auto" alt="Liam" />
+          <h4 class="mt-4 font-semibold">Liam Chen</h4>
+          <p class="text-xs text-gray-500">CTO</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1545996124-1b8b9f0f3b83?q=80&w=800&auto=format&fit=crop"
+            class="w-24 h-24 rounded-full mx-auto" alt="Maya" />
+          <h4 class="mt-4 font-semibold">Maya Patel</h4>
+          <p class="text-xs text-gray-500">Product Lead</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1545235617-9465d4ee47f9?q=80&w=800&auto=format&fit=crop"
+            class="w-24 h-24 rounded-full mx-auto" alt="Noah" />
+          <h4 class="mt-4 font-semibold">Noah Brooks</h4>
+          <p class="text-xs text-gray-500">Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
+    <div class="bg-gradient-to-r from-indigo-600 to-cyan-400 text-white p-8 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Our Core Values</h3>
+      <ul class="space-y-2 text-sm">
+        <li>✨ Simplicity in design</li>
+        <li>⚡ Speed and reliability</li>
+        <li>🔍 Data-driven improvements</li>
+        <li>🤝 Respectful collaboration</li>
+      </ul>
+    </div>
+    <div class="bg-white rounded-2xl p-8 shadow-lg">
+      <h3 class="text-xl font-semibold mb-4">Our Workflow</h3>
+      <p class="text-gray-600 mb-4">
+        We iterate fast, deliver consistently, and learn from every launch. Our agile teams ensure user feedback shapes every update.
+      </p>
+      <div class="flex gap-4 text-center">
+        <div class="flex-1 bg-gray-100 p-4 rounded-lg">
+          <div class="font-bold">Weekly</div>
+          <div class="text-xs text-gray-500">Feature Sprints</div>
+        </div>
+        <div class="flex-1 bg-gray-100 p-4 rounded-lg">
+          <div class="font-bold">Daily</div>
+          <div class="text-xs text-gray-500">Sync & Review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+    <p>&copy; <span id="year"></span> NotesApp — Built with ❤️ by the NotesApp Team</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

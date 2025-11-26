@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Submission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-green-50 to-blue-100 min-h-screen flex items-center justify-center p-6">
+    {% if user is none %}
+    <div>
+        <!-- Static Error Card -->
+        <div class="bg-white border-l-8 border-red-600 shadow-xl rounded-2xl w-96 p-6">
+            <!-- Icon -->
+            <div class="flex justify-center mb-3">
+                <div class="bg-red-100 text-red-600 p-3 rounded-full text-2xl">
+                    ⚠️
+                </div>
+            </div>
+            <div>
+                <!-- Title -->
+                <h2 class="text-center text-xl font-semibold text-red-700 mb-2">
+                    Error Occurred!
+                </h2>
+
+                <!-- Message -->
+                <p class="text-center text-gray-600">
+                    Something went wrong while processing your request.
+                    Please check your input and try again.
+                </p>
+            </div>
+
+        </div>
+        {% else %}
+        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center text-green-700 mb-6">Submit Your Notes</h2>
+
+            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-5">
+                {% csrf_token %}
+                <!-- Notes Title -->
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Notes Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter notes title"
+                        class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea id="description" name="desc" rows="4" placeholder="Write a short description..."
+                        class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"></textarea>
+                </div>
+
+                <!-- File Upload -->
+                <div>
+                    <label for="file" class="block text-sm font-medium text-gray-700">Upload Notes File</label>
+                    <input type="file" id="file" name="file"
+                        class="mt-1 w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700">
+                </div>
+
+                <!-- Category -->
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                    <select id="category" name="category"
+                        class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none">
+                        <option value="">-- Select Category --</option>
+                        <option value="science">Science</option>
+                        <option value="math">Math</option>
+                        <option value="history">History</option>
+                        <option value="literature">Literature</option>
+                        <option value="technology">Technology</option>
+                    </select>
+                </div>
+
+
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg shadow-md transition duration-300">
+                    Submit Notes
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</body>
+
+</html>
