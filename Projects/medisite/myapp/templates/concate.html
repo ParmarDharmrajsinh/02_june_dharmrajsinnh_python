@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - MediTrack{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-red-50 to-orange-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-bold mb-4 gradient-text">Contact Us</h1>
+            <p class="text-xl text-gray-600">We'd love to hear from you. Get in touch with us anytime.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Email -->
+                <div class="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Email</h3>
+                    <p class="text-gray-600">support@meditrack.com</p>
+                    <p class="text-sm text-gray-500 mt-2">We'll respond within 24 hours</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Phone</h3>
+                    <p class="text-gray-600">+91-1234-567-890</p>
+                    <p class="text-sm text-gray-500 mt-2">Monday - Friday, 9AM - 6PM</p>
+                </div>
+
+                <!-- Location -->
+                <div class="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Location</h3>
+                    <p class="text-gray-600">123 Health Street</p>
+                    <p class="text-gray-600">Medical City, MC 12345</p>
+                </div>
+            </div>
+
+            <!-- Contact Form and Map -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Send us a Message</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                            <input type="text" placeholder="Your Name" 
+                                class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                            <input type="email" placeholder="your@email.com" 
+                                class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                            <input type="tel" placeholder="+91-XXXXXXXXXX" 
+                                class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Subject</label>
+                            <select class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                <option>Select a subject</option>
+                                <option>General Inquiry</option>
+                                <option>Technical Support</option>
+                                <option>Feedback</option>
+                                <option>Partnership</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea placeholder="Your message..." rows="5"
+                                class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Box -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Why Contact Us?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold mb-2">Have Questions?</h3>
+                                <p class="text-gray-600">Our support team is ready to help you with any questions or concerns about MediTrack.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold mb-2">Feature Requests</h3>
+                                <p class="text-gray-600">Have a great idea? Share your feature suggestions and help us improve MediTrack.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-600 text-white">
+                                    <i class="fas fa-bug"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold mb-2">Report Issues</h3>
+                                <p class="text-gray-600">Found a bug? Report technical issues and help us maintain the best service quality.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-600 text-white">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold mb-2">Partnerships</h3>
+                                <p class="text-gray-600">Interested in partnering with MediTrack? Let's explore collaboration opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info Box -->
+                    <div class="mt-10 p-6 bg-blue-50 rounded-2xl border border-blue-200">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Quick Response</h3>
+                        <p class="text-blue-800">We aim to respond to all inquiries within 24 business hours. Thank you for reaching out!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Follow Us on Social Media</h2>
+            <div class="flex justify-center space-x-8">
+                <a href="#" class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition text-2xl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition text-2xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center text-white hover:from-pink-600 hover:to-red-600 transition text-2xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition text-2xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                        How do I create an account?
+                    </h3>
+                    <p class="text-gray-600 ml-8">Click on "Get Started" and fill in your basic information. You'll receive a verification email to confirm your account.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                        Is my data secure?
+                    </h3>
+                    <p class="text-gray-600 ml-8">Yes, we use enterprise-grade encryption and follow all HIPAA compliance standards to protect your health data.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                        What is the pricing?
+                    </h3>
+                    <p class="text-gray-600 ml-8">MediTrack offers a free plan with basic features and premium plans starting at $4.99/month for advanced features.</p>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition">
+                    <h3 class="text-xl font-bold mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                        Can I use MediTrack on multiple devices?
+                    </h3>
+                    <p class="text-gray-600 ml-8">Yes! Your data syncs automatically across all devices. Access MediTrack from your phone, tablet, or computer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
