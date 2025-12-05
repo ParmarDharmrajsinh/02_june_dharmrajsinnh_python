@@ -4,7 +4,6 @@ order_id_counter = 1
 
 def record_order():
     global order_id_counter
-
     print("\n--- New Repair Order ---")
     customer = input("Enter customer name: ")
     device   = input("Enter device type: ")
