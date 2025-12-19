@@ -7,7 +7,6 @@ class User:
     def __init__(self, name):
         self.name = name.strip()
 
-
 class Post:
     def __init__(self, user, title, content):
         self.user = user
@@ -33,13 +32,11 @@ class Post:
             messagebox.showerror("Error", f"Failed to save post: {e}")
             return None
 
-
 class MiniBlogApp:
     def __init__(self, root):
         self.root = root
         self.root.title("MiniBlog - Simple Blogging App")
         self.root.geometry("600x500")
-
         self.posts_dir = "posts"
 
         tk.Label(root, text="Your Name:").pack(anchor="w", padx=10, pady=5)
@@ -60,7 +57,6 @@ class MiniBlogApp:
         self.post_listbox = tk.Listbox(root, width=50, height=8)
         self.post_listbox.pack(padx=10, pady=5)
         self.post_listbox.bind("<<ListboxSelect>>", self.load_post)
-
         self.view_content = tk.Text(root, height=8, width=60, state="disabled")
         self.view_content.pack(padx=10, pady=5)
 
@@ -128,7 +124,6 @@ class MiniBlogApp:
             self.view_content.delete("1.0", tk.END)
             self.view_content.config(state="disabled")
             messagebox.showinfo("Deleted", f"{filename} removed.")
-
 
 if __name__ == "__main__":
     root = tk.Tk()
