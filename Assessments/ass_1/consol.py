@@ -84,17 +84,13 @@ def generate_invoice():
     except ValueError:
         print(" Invalid input. Enter a number.")
         return
-
     order = next((o for o in orders if o["order_id"] == order_id), None)
-
     if not order:
         print(" Order not found.")
         return
-
     if order["status"] != "Completed":
         print(" Repair not completed yet. Invoice unavailable.")
         return
-
     print("\n====== FixTrack Invoice ======")
     print(f"Order ID   : {order['order_id']}")
     print(f"Customer   : {order['customer']}")
@@ -106,7 +102,6 @@ def generate_invoice():
     subtotal = order["repair_fee"] + sum(cost for _, cost in order["parts"])
     tax = subtotal * 0.18 
     discount = 0
-
     apply_discount = input("Apply discount? (y/n): ").lower()
     if apply_discount == "y":
         try:
@@ -116,7 +111,6 @@ def generate_invoice():
             discount = 0
 
     total = subtotal + tax - discount
-
     print(f"Repair Fee : ₹{order['repair_fee']:.2f}")
     for part, cost in order["parts"]:
         print(f"Part       : {part} - ₹{cost:.2f}")
@@ -127,20 +121,16 @@ def generate_invoice():
     print(f"TOTAL      : ₹{total:.2f}")
     print("===============================")
 
-
 def view_orders():
     if not orders:
         print("\n No orders found.")
         return
-
     print("\n--- All Repair Orders ---")
     for order in orders:
         print(
             f"ID: {order['order_id']} | Customer: {order['customer']} | "
             f"Device: {order['device']} | Status: {order['status']} | Due: {order['due_date']}"
         )
-
-
 def main():
    
     while True:
@@ -152,7 +142,6 @@ def main():
         print("5. Exit")
 
         choice = input("Choose an option: ")
-
         if choice == "1":
             record_order()
         elif choice == "2":
@@ -166,7 +155,5 @@ def main():
             break
         else:
             print(" Invalid choice. Try again.")
-
-
 if __name__ == "__main__":
     main()
