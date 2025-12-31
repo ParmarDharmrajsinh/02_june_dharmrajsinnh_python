@@ -5,9 +5,7 @@ class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    
-    # Add this field for likes 
+    created_at = models.DateTimeField(auto_now_add=True) 
     likes = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_posts', blank=True)
 
     def __str__(self):
@@ -35,6 +33,7 @@ class Follow(models.Model):
         on_delete=models.CASCADE,
         related_name='followers_set'
     )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.follower} → {self.following}"

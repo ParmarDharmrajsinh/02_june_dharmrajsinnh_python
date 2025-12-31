@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Custom User with Roles
 class User(AbstractUser):
     ROLE_CHOICES = (
         ('admin', 'Admin'),
@@ -27,7 +26,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='posts/')
 
     def __str__(self):
-        # Return a short preview for admin lists
+        
         return (self.caption[:50] + '...') if self.caption and len(self.caption) > 50 else (self.caption or f"Post {self.id}")
 
 
