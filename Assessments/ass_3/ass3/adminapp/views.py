@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 
 User = get_user_model()
 
-# Admin credentials
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "admin123"
 

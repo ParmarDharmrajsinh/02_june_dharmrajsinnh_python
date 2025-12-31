@@ -8,21 +8,12 @@ from .models import Post, Comment, Follow
 from .forms import CommentForm
 
 User = get_user_model()
-
-# ------------------------------
-# Home / Feed
-# ------------------------------
 def home(request):
     posts = Post.objects.all().order_by("-created_at")
     context = {
         "posts": posts,
     }
     return render(request, "home.html", context)
-
-
-# ------------------------------
-# Post Creation
-# ------------------------------
 @login_required
 def create_post(request):
     if request.method == "POST":
@@ -38,10 +29,6 @@ def create_post(request):
 
     return render(request, "create_post.html")
 
-
-# ------------------------------
-# Post Detail
-# ------------------------------
 def post_detail(request, id):
     post = Post.objects.get(id=id)
     liked = False
@@ -50,7 +37,6 @@ def post_detail(request, id):
     context = {'post': post, 'liked': liked}
     return render(request, 'post_detail.html', context)
 
-    # Likes
     user_liked = False
     if request.user.is_authenticated:
         user_liked = post.likes.filter(id=request.user.id).exists()
@@ -66,10 +52,6 @@ def post_detail(request, id):
 
     return render(request, "post_detail.html", context)
 
-
-# ------------------------------
-# Add Comment
-# ------------------------------
 @login_required
 def add_comment(request, id):
     post = get_object_or_404(Post, id=id)
@@ -88,10 +70,6 @@ def add_comment(request, id):
 
     return redirect("insta:post_detail", id=post.id)
 
-
-# ------------------------------
-# Delete Comment
-# ------------------------------
 @login_required
 def delete_comment(request, id):
     comment = get_object_or_404(Comment, id=id)
@@ -103,16 +81,9 @@ def delete_comment(request, id):
     messages.success(request, "Comment deleted!")
 
     return redirect("insta:post_detail", id=comment.post.id)
-
-
-# ------------------------------
-# Like / Unlike Toggle
-# ------------------------------
-
 def like_post(request, id):
     post = get_object_or_404(Post, id=id)
     
-    # Example logic: toggle like for simplicity
     if request.user in post.likes.all():
         post.likes.remove(request.user)
     else:
@@ -120,10 +91,6 @@ def like_post(request, id):
     
     return redirect('insta:post_detail', id=id)
 
-
-# ------------------------------
-# Follow / Unfollow Toggle
-# ------------------------------
 @login_required
 def follow_toggle(request, user_id):
     user_to_follow = get_object_or_404(User, id=user_id)
@@ -137,9 +104,6 @@ def follow_toggle(request, user_id):
         Follow.objects.create(follower=request.user, following=user_to_follow)
     return redirect('insta:home')
 
-# ------------------------------
-# View Followers
-# ------------------------------
 def followers_list(request, user_id):
     User = get_user_model()
     user = get_object_or_404(User, id=user_id)
@@ -151,10 +115,6 @@ def followers_list(request, user_id):
         "followers": followers,
     })
 
-
-# ------------------------------
-# View Following
-# ------------------------------
 def following_list(request, user_id):
     User = get_user_model()
     user = get_object_or_404(User, id=user_id)
@@ -165,11 +125,6 @@ def following_list(request, user_id):
         "user": user,
         "following": following,
     })
-
-
-# ------------------------------
-# User Authentication
-# ------------------------------
 from django.contrib.auth import authenticate, login, logout
 
 def login_view(request):
