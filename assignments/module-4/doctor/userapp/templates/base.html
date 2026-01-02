@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Doctor Finder{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar (common for all pages) -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-blue-600">DoctorFinder</a>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="/" class="hover:text-blue-600">Home</a>
+        <a href="/features" class="hover:text-blue-600">Features</a>
+        <a href="/about" class="hover:text-blue-600">About</a>
+        <a href="/contact" class="hover:text-blue-600">Contact</a>
+        {% if user.is_authenticated %}
+          <a href="/logout" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Logout</a>
+        {% else %}
+          <a href="/login" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Login</a>
+        {% endif %}
+      </div>
+      <button id="menu-btn" class="md:hidden text-gray-600 text-2xl">☰</button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer (common for all pages) -->
+  <footer class="bg-gray-900 text-gray-400 py-6 mt-10">
+    <div class="max-w-7xl mx-auto text-center">
+      <p>&copy; 2025 DoctorFinder. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu (Optional) -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
